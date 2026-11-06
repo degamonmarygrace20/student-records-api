@@ -9,6 +9,7 @@ const editing = ref(null);       // student being edited, or null
 const errors = ref({});
 const message = ref('');
 const messageType = ref('success');
+const formKey = ref(0);
 
 const notify = (text, type = 'success') => {
     message.value = text;
@@ -36,7 +37,7 @@ const saveStudent = async (form) => {
             notify('Student added successfully!');
         }
         editing.value = null;
-        await fetchStudents();
+        formKey.value++;
     } catch (e) {
         if (e.response?.status === 422) {
             errors.value = e.response.data.errors;
@@ -68,6 +69,7 @@ onMounted(fetchStudents);
         <p v-if="message" :class="['alert', messageType]">{{ message }}</p>
 
         <StudentForm
+            :key="formKey"
             :student="editing"
             :errors="errors"
             @save="saveStudent"
