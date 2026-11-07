@@ -1,6 +1,7 @@
 <script setup>
 defineProps({
     students: { type: Array, required: true },
+    isAdmin: {type: Boolean, default: false},
 });
 defineEmits(['edit', 'delete']);
 </script>
@@ -15,7 +16,7 @@ defineEmits(['edit', 'delete']);
             <thead>
                 <tr>
                     <th>ID</th><th>First Name</th><th>Last Name</th>
-                    <th>Email</th><th>Course</th><th>Year</th><th>Actions</th>
+                    <th>Email</th><th>Course</th><th>Year</th><th v-if="isAdmin">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,7 +27,7 @@ defineEmits(['edit', 'delete']);
                     <td>{{ student.email }}</td>
                     <td>{{ student.course }}</td>
                     <td>{{ student.year_level }}</td>
-                    <td>
+                    <td v-if"isAdmin">
                         <button class="btn edit" @click="$emit('edit', student)">Edit</button>
                         <button class="btn delete" @click="$emit('delete', student.id)">Delete</button>
                     </td>
