@@ -23,3 +23,5 @@ th { background: #eee; }
 .alert.success { background: #dff0d8; color: #2d6a2d; }
 .alert.error { background: #f8d7da; color: #842029; }
 .error { color: #d9534f; }
+.topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; padding: 8px; background:#eef2f7; border-radius: 4px;}
+.note { color: #555; font-style: italic;}
