@@ -27,7 +27,7 @@ defineEmits(['edit', 'delete']);
                     <td>{{ student.email }}</td>
                     <td>{{ student.course }}</td>
                     <td>{{ student.year_level }}</td>
-                    <td v-if"isAdmin">
+                    <td v-if="isAdmin">
                         <button class="btn edit" @click="$emit('edit', student)">Edit</button>
                         <button class="btn delete" @click="$emit('delete', student.id)">Delete</button>
                     </td>
