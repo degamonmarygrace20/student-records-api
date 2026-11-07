@@ -30,10 +30,10 @@ const saveStudent = async (form) => {
     errors.value = {};
     try {
         if (form.id) {
-            await axios.put('/api/students/${form.id}', form);
+            await axios.put(`/api/students/${form.id}`, form);
             notify('Student updated successfully!');
         } else {
-            await axios.post('/api/students', form);
+            await axios.post(`/api/students`, form);
             notify('Student added successfully!');
         }
         editing.value = null;
@@ -51,7 +51,7 @@ const saveStudent = async (form) => {
 const deleteStudent = async (id) => {
     if (!confirm('Delete this student?')) return;
     try {
-        await axios.delete('/api/students/${id}');
+        await axios.delete(`/api/students/${id}`);
         notify('Student deleted successfully!');
         await fetchStudents();
     } catch (e) {

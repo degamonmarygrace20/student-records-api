@@ -29,7 +29,7 @@ watch(() => props.student, (s) => Object.assign(form, s ? s : empty));
         <input v-model="form.course" placeholder="Course" />
         <small v-if="errors.course" class="error">{{ errors.course[0] }}</small>
 
-        <input v-model="form.year_level" type="number" placeholder="Year Level (1-6)" />
+        <input v-model="form.year_level" type="er" placeholder="Year Level (1-6)" />
         <small v-if="errors.year_level" class="error">{{ errors.year_level[0] }}</small>
 
         <div>
